@@ -734,7 +734,7 @@
                     { year: 2026, month: 12, day: 16, name: 'วันหยุดพิเศษ สสท' },
                     { year: 2026, month: 12, day: 31, name: 'วันสิ้นปี' },
 
-                    // พ.ศ. 2570 (2027) ตามมติคณะกรรมการบริหารครั้งที่ 11/2569
+                    // พ.ศ. 2570 (2027) 
                     { year: 2027, month: 1, day: 1, name: 'วันขึ้นปีใหม่' },
                     { year: 2027, month: 2, day: 22, name: 'ชดเชยวันมาฆบูชา' },
                     { year: 2027, month: 4, day: 6, name: 'วันจักรี' },
@@ -755,9 +755,10 @@
 
                 const getHoliday = (dateObj) => {
                     if (!dateObj || isNaN(dateObj.getTime())) return null;
+                    const y = dateObj.getFullYear();
                     const m = dateObj.getMonth() + 1;
                     const d = dateObj.getDate();
-                    return publicHolidays.find(h => h.month === m && h.day === d) || null;
+                    return publicHolidays.find(h => h.year === y && h.month === m && h.day === d) || null;
                 };
 
                 const getHolidayForCalendarDay = (dayNum) => {
